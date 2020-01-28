@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <h3>Adicionar ao cadastro</h3>
+    <form action="javascript:void(0);" method="POST" onsubmit="addItem()">
+
+        <p> <label> Nome <input type="text" id="add-name" name="Nome"> </label> </p>
+        <p> <label> Email <input type="email" id="add-email"> </label> </p>
+        <p> <label>Nascimento <input type="date" id="add-birth"> </label> </p>
+
+        <!--<p> <label>Foto <input type="file" id="add-image"> </label> </p>-->
+
+        <input type="submit" value="Cadastrar">
+    </form>
+
+    <br />
+    <br />
+
+    <h3>Busca</h3>
+    <form action="javascript:void(0);" onsubmit="searchDB()">
+        <p>
+            <label> Nome <input type="text" id="name-search"> </label>
+            <label> Email <input type="text" id="email-search"> </label>
+            <input type="submit" value="Buscar" />
+        </p>
+    </form>
+    <form action="javascript:void(0);" onsubmit="clearSearch()">
+        <p>
+            <input type="submit" value="Limpar busca" />
+        </p>
+    </form>
+
+    <br />
+    <br />
+
+    <div id="editForm">
+        <h3>Editar cadastro</h3>
+        <form action="javascript:void(0);" onsubmit="updateItem()">
+            <input type="hidden" id="edit-id">
+            <input type="text" id="edit-name">
+            <input type="email" id="edit-email">
+            <input type="date" id="edit-birth">
+            <input type="submit" value="Atualizar">
+            <button type="button" onclick="closeInput()">Cancelar</button>
+        </form>
+    </div>
+
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Nascimento</th>
+        </tr>
+        <tbody id="pessoasTable"></tbody>
+    </table>
+
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        getItems();
+    </script>
+</body>
+</html>
